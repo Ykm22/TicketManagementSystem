@@ -1,0 +1,71 @@
+--Creating the TicketManagementSystem Database and its Tables
+
+CREATE DATABASE TicketManagementSystem;
+
+USE TicketManagementSystem;
+
+CREATE TABLE Users(
+	ID UNIQUEIDENTIFIER PRIMARY KEY,
+	Email NVARCHAR(64) NOT NULL,
+	PasswordHash NVARCHAR(64) NOT NULL,
+	Salt NVARCHAR(64) NOT NULL,
+	Sex CHAR(1),
+	Age SMALLINT,
+	IsCustomer BIT NOT NULL,
+
+	CONSTRAINT UQ_Users_Email UNIQUE (Email)
+);
+
+CREATE TABLE Venues(
+	ID UNIQUEIDENTIFIER PRIMARY KEY,
+	Location NVARCHAR(64) NOT NULL,
+	Type NVARCHAR(64) NOT NULL,
+	Capacity INT,
+	PricePerHour NUMERIC(10, 2),
+	
+	CONSTRAINT CK_Venues_Capacity CHECK (Capacity > 0),
+	CONSTRAINT CK_Venues_PricePerHours CHECK (PricePerHour >= 0)
+);
+
+CREATE TABLE EventTypes(
+	ID UNIQUEIDENTIFIER PRIMARY KEY,
+	Name NVARCHAR(64) NOT NULL
+);
+
+CREATE TABLE Events(
+	ID UNIQUEIDENTIFIER PRIMARY KEY,
+	Venue_ID UNIQUEIDENTIFIER,
+	EventType_ID UNIQUEIDENTIFIER,
+	Description NVARCHAR(64) NOT NULL,
+	Name NVARCHAR(64) NOT NULL,
+	StartDate DATETIME NOT NULL,
+	EndDate DATETIME NOT NULL,
+
+	CONSTRAINT FK_Event_Venue FOREIGN KEY (Venue_ID) REFERENCES Venues (ID),
+    CONSTRAINT FK_Event_EventType FOREIGN KEY (EventType_ID) REFERENCES EventTypes (ID),
+
+	CONSTRAINT CK_Events_DateRange CHECK (EndDate >= StartDate)
+);
+
+CREATE TABLE TicketCategories(
+	ID UNIQUEIDENTIFIER PRIMARY KEY,
+	Event_ID UNIQUEIDENTIFIER,
+	Description NVARCHAR(64) NOT NULL,
+	Price NUMERIC(10, 2) NOT NULL,
+
+	CONSTRAINT FK_TicketCategory_Event FOREIGN KEY (Event_ID) REFERENCES Events(ID)
+);
+
+CREATE Orders(
+	ID UNIQUEIDENTIFIER PRIMARY KEY,
+	User_ID UNIQUEIDENTIFIER,
+	TicketCategory_ID UNIQUEIDENTIFIER,
+	OrderedAt DATETIME NOT NULL,
+	NumberOfTickets INT NOT NULL,
+	TotalPrice INT NOT NULL, 
+	CONSTRAINT FK_ORDERS_USERS FOREIGN KEY (User_ID) REFERENCES Users (ID),
+	CONSTRAINT FK_ORDERS_TicketCategories FOREIGN KEY (TicketCategory_ID) REFERENCES TicketCategories (ID),
+
+	CONSTRAINT CK_Orders_NumberOfTickets CHECK (NumberOfTickets > 0),
+	CONSTRAINT CK_Orders_TotalPrice CHECK (TotalPrice > 0)
+);
