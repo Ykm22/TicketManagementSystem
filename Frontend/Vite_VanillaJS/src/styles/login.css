@@ -1,0 +1,170 @@
+.login-container, .register-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    z-index: 9999;
+    overflow: hidden; 
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  } 
+ 
+
+  .centered-box {
+    width: 350px;
+    height: 500px;
+    background-color: white;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Adding a shadow box */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    border-radius: 20px;
+  }
+  
+  .background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/src/assets/Endava.png'); /* Set your image path */
+    background-size: cover;
+    filter: blur(10px); /* Apply the blur effect */
+    z-index: -1; /* Place the background image behind the content */
+  }
+
+.login-content, .register-content {
+    z-index: 1; /* Place the content above the background image */
+}
+.register {
+    display: flex;
+    flex-direction: column;
+}
+.login.inputs, .register.inputs {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.input-field, 
+.input-field-email,
+.input-field-password,
+.input-field-retype-password,
+.input-field-age,
+.register.inputs select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 8px;
+    background-color: #f6f6f6;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    outline: none; /* Remove the default focus outline */
+}
+
+.input-field::placeholder {
+    color: #aaa;
+}
+
+.input-field:focus,
+.input-field-email:focus,
+.input-field-password:focus,
+.input-field-retype-password:focus,
+.input-field-age:focus,
+.register.inputs select:focus {
+    box-shadow: 0 0 8px rgba(255, 165, 0, 0.6); /* Orange shadow when focused */
+}
+.text-title {
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 20px; /* Add some spacing below the title */
+}
+
+.login-button,
+.register-button {
+    background-color: #de411b;
+    color: white;
+    border: none;
+    /* border-radius: 8px; */
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: block; /* Make the button a block-level element */
+    width: 100px; /* Set the width to 100px */
+    margin: 20px auto; /* Center the button using auto margins */
+    display: block;
+    width: 100px;
+    margin: 20px auto;
+    position: relative; /* Set position to relative for pseudo-element */
+    z-index: 1; /* Initial z-index value */
+    transition: z-index 0.3s ease, transform 0.3s ease, background-color 0.3s ease;
+}
+
+.login-button:hover,
+.register-button:hover {
+    background-color: #de411b; /* Darker shade on hover */
+}
+
+.separator {
+    width: 100%;
+    height: 1px;
+    background-color: #ddd;
+    margin: 20px 0;
+}
+
+.register-link, .back-link {
+    text-align: center;
+    font-size: 14px;
+    color: #555;
+}
+
+.register-link span,
+.back-link span {
+    cursor: pointer;
+    color: #de411b;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.register-link span:hover,
+.back-link span:hover {
+    transition: color 0.3s ease;
+    color: green; /* Change color to yellow on hover */
+}
+
+.login-button::before,
+.register-button::before {
+    content: ''; /* Create a pseudo-element */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ff8c00; /* Background color for effect */
+    z-index: -1; /* Behind the button */
+    transform: scaleX(0); /* Initial transform value */
+    transform-origin: right;
+    transition: transform 0.3s ease;
+}
+
+.login-button:hover,
+.register-button:hover {
+    z-index: 2; /* Increase z-index on hover */
+}
+
+.login-button:hover::before,
+.register-button:hover::before {
+    transform: scaleX(1); /* Scale up on hover */
+}

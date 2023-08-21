@@ -1,0 +1,20 @@
+{
+  "name": "ticketmanagementsystem",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.3.3",
+    "vite": "^4.4.5"
+  },
+  "dependencies": {
+    "autoprefixer": "^10.4.14",
+    "tailwindcss": "^3.3.3",
+    "toastr": "^2.1.4"
+  }
+}

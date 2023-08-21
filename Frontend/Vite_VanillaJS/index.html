@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="stylesheet" href="./src/styles/tailwind.css">
+    <link rel="stylesheet" href="./src/styles/style.css">
+    <link rel="stylesheet" href="./src/styles/login.css">
+    <link rel="stylesheet" href="./src/styles/analytics.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.css" integrity="sha512-oe8OpYjBaDWPt2VmSFR+qYOdnTjeV9QPLJUeqZyprDEQvQLJ9C5PCFclxwNuvb/GQgQngdCXzKSFltuHD3eCxA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ticket Management System</title>
+  </head>
+  <body>
+    <header id="page-header">
+      <nav class="container mx-auto px-4 py2 flex items-center justify-between">
+        <div class="md:block">
+          <ul class="flex space-x-4 align-center">
+            <li>
+
+              <!-- href="/"  -->
+              <a 
+              aria-label="Go to home page" class="text-white font-bold text-2xl">
+                <img class="logo" src="./src/assets/logo.png" alt="app logo">
+              </a>
+              
+            </li>
+            <li>
+              
+              <a 
+              href="/"
+              class="hover:text-black text-lg font-bold link-item"
+              >Log out</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="md:block">
+          <ul class="flex space-x-4">
+            <li>
+              <a 
+                href="/events"
+                class="hover:text-black text-lg font-bold link-item"
+                >Events</a
+                >
+            </li>
+            <li>
+              <a 
+                href="/orders"
+                class="hover:text-black text-lg font-bold link-item"
+                >Orders</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="w-16 flex justify-end pr-2">
+				</div>
+      </nav>
+    </header>
+    <div id="loader">
+      <img class="loader" src="./src/assets/loader/loading.gif">
+    </div>
+    <main class="main-content-component">
+      <div id="app"></div>
+      
+      <script type="module" src="src/scripts/main.js"></script>
+      
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js" integrity="sha512-lbwH47l/tPXJYG9AcFNoJaTMhGvYWhVM9YI43CT+uteTRRaiLCui8snIgyAN8XWgNjNhCqlAUdzZptso6OCoFQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  </body>
+</html>

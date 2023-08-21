@@ -1,0 +1,410 @@
+.analytics-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    z-index: 9999;
+    overflow: hidden; 
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  } 
+
+  .generate-winnings-button,
+  .generate-winnings-predictions-button,
+  .generate-age-percentages-button,
+  .predict-age-percentages-button {
+    margin :3px;
+    background-color: #ff5900;
+    border: none;
+    border-radius: 25px; /* Half of the button's height */
+    width: 200px;
+    height: 50px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+  }
+  
+  .logout-button {
+    background-color: #ff5900;
+    font-weight:bold;
+    color: white;
+    margin :10px;
+    border: none;
+    border-radius: 25px; /* Half of the button's height */
+    width: 100px;
+    height: 50px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+  }
+
+.generate-winnings-predictions-button{
+    font-size: 15px;
+}
+
+.generate-winnings-button:hover,
+.generate-winnings-predictions-button:hover,
+.generate-age-percentages-button:hover,
+.predict-age-percentages-button:hover,
+.logout-button:hover{
+    cursor: pointer;
+    transform: scale(1.05);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+#event-type-select {
+    width: 95%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 8px;
+    background-color: #f6f6f6;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    outline: none;
+    transition: background-color 0.3s; /* Add a smooth transition effect */
+}
+    /* Hover effect */
+#event-type-select:hover {
+    background-color: #e0e0e0; /* Change the background color on hover */
+}
+
+
+  .analytics-box {
+    width: 100%;
+    height: 90%;
+    background-color: white;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Adding a shadow box */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    border-radius: 20px;
+  }
+  
+  .background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/src/assets/Endava.png'); /* Set your image path */
+    background-size: cover;
+    filter: blur(10px); /* Apply the blur effect */
+    z-index: -1; /* Place the background image behind the content */
+  }
+
+.analytics-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    z-index: 1; /* Place the content above the background image */
+}
+.year-options,
+.age-options {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.year-winnings,
+.ages-event-types {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#winnings-plot{
+    max-width: 800px;
+}
+.year-inputs{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.register {
+    display: flex;
+    flex-direction: column;
+}
+.login.inputs, .register.inputs {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.input-field, 
+.input-field-email,
+.input-field-password,
+.input-field-retype-password,
+.input-field-age,
+.register.inputs select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 8px;
+    background-color: #f6f6f6;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    outline: none; /* Remove the default focus outline */
+}
+
+.input-field::placeholder {
+    color: #aaa;
+}
+
+.input-field:focus,
+.input-field-email:focus,
+.input-field-password:focus,
+.input-field-retype-password:focus,
+.input-field-age:focus,
+.register.inputs select:focus {
+    box-shadow: 0 0 8px rgba(255, 165, 0, 0.6); /* Orange shadow when focused */
+}
+.text-title {
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 20px; /* Add some spacing below the title */
+}
+
+.login-button,
+.register-button {
+    background-color: #de411b;
+    color: white;
+    border: none;
+    /* border-radius: 8px; */
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: block; /* Make the button a block-level element */
+    width: 100px; /* Set the width to 100px */
+    margin: 20px auto; /* Center the button using auto margins */
+    display: block;
+    width: 100px;
+    margin: 20px auto;
+    position: relative; /* Set position to relative for pseudo-element */
+    z-index: 1; /* Initial z-index value */
+    transition: z-index 0.3s ease, transform 0.3s ease, background-color 0.3s ease;
+}
+
+.login-button:hover,
+.register-button:hover {
+    background-color: #de411b; /* Darker shade on hover */
+}
+
+.separator {
+    width: 100%;
+    height: 1px;
+    background-color: #ddd;
+    margin: 20px 0;
+}
+
+.register-link, .back-link {
+    text-align: center;
+    font-size: 14px;
+    color: #555;
+}
+
+.register-link span,
+.back-link span {
+    cursor: pointer;
+    color: #de411b;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.register-link span:hover,
+.back-link span:hover {
+    transition: color 0.3s ease;
+    color: green; /* Change color to yellow on hover */
+}
+
+.login-button::before,
+.register-button::before {
+    content: ''; /* Create a pseudo-element */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ff8c00; /* Background color for effect */
+    z-index: -1; /* Behind the button */
+    transform: scaleX(0); /* Initial transform value */
+    transform-origin: right;
+    transition: transform 0.3s ease;
+}
+
+.login-button:hover,
+.register-button:hover {
+    z-index: 2; /* Increase z-index on hover */
+}
+
+.login-button:hover::before,
+.register-button:hover::before {
+    transform: scaleX(1); /* Scale up on hover */
+}
+
+
+
+.year-inputs input[type="checkbox"] {
+    /* Hide the default checkbox appearance */
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 13px;
+    height: 13px;
+    border: 2px solid #ff5900;
+    margin-right: 2px;
+    border-radius: 4px; /* Rounded corners for checkbox */
+    outline: none;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .year-inputs input[type="checkbox"]:checked {
+    background-color: #ff5900; /* Change background color when checked */
+    border-color: #ff5900; /* Change border color when checked */
+  }
+
+
+  .age-groups {
+      /* Display the list items in a row */
+    display: flex;
+    /* flex-direction: row;  */
+    width: 200px;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.age-group {
+    /* Distribute available space evenly among items */
+    /* flex: 1; */
+    text-align: center;
+    /* width: 30px; */
+}
+
+.percentage {
+    background-color: #a91f1f;
+    height: 20px;
+    border-radius: 8px;
+    margin-top: 5px;
+}
+
+.percentages-results {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+    width: 400px;
+    margin: 50px;
+    /* height: 400px; */
+    /* margin-left: 50px; */
+}
+
+.actual-percentages {
+    height: 100px;
+    /* width */
+}
+
+.percentages-details {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center;
+    */
+    justify-content: center; 
+}
+
+.percentages-title,
+.groups-title {
+    font-size: 30px;
+    text-align: center;
+}
+
+.groups-container {
+    display: flex;
+    flex-direction: column;
+    width: 200px; /* Set the desired width */
+    margin: 10px;
+}
+
+.group, 
+.age-label {
+    display: flex;
+    /* justify-content: space-between; */
+    justify-content: center;
+    align-items: center;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    font: bold;
+    font-size: 16.5px;
+}
+
+.group-name {
+    color: white;
+    margin-right: 5px;
+}
+
+.probability {
+    color: white;
+}
+
+.groups-sub-title{
+    display: flex;
+    /* flex-direction: row; */
+    justify-content: center;
+    align-items: center;
+}
+
+.groups-sub-title > div{
+    flex-grow: 1;
+    text-align: center;
+}
+
+.male-details,
+.female-details,
+.age-label-details {
+    margin: 20px;
+}
+
+.sub-title {
+    width: 100px;
+    font: bold;
+    font-size: 20px;
+}
+
+.actual-percentages .male,
+.actual-percentages .female {
+    display: flex;
+    align-items: center;
+}
+
+.male_span,
+.female_span {
+    margin: 3px;
+}
