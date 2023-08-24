@@ -1,0 +1,5 @@
+__pycache__/
+*.pyc
+
+data/credentials/user_credentials.csv
+data/names/US.csv
